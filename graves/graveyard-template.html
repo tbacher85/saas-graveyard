@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT_NAME - The Graveyard</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <style>
+        .button { 
+            display: inline-block; 
+            background: #333; 
+            color: white; 
+            padding: 0.8rem 1.5rem; 
+            text-decoration: none; 
+            border-radius: 4px; 
+            margin: 1rem 0; 
+            font-size: 1.1em; 
+        }
+        .button:hover {
+            background: #555;
+        }
+        .grave-details {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .assets-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .assets-list li {
+            padding: 0.3rem 0;
+        }
+        .assets-list li:before {
+            content: "• ";
+            color: #333;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Update the path to go back to the main page -->
+            <a href="../index.html">← Back to The Graveyard</a>
+        </nav>
+        <h1>🪦 PROJECT_NAME</h1>
+        <p>R.I.P. • Cause of Death: REASON_FOR_FAILURE</p>
+    </header>
+
+    <main>
+        <section class="grave-details">
+            <h2>Public Post-Mortem</h2>
+            <blockquote>
+                <p>LESSONS_LEARNED_TEXT</p>
+            </blockquote>
+
+            <h3>Potential Assets Available</h3>
+            <ul class="assets-list">
+                <li><strong>Asking Price:</strong> $ASKING_PRICE</li>
+                <li><strong>Assets Included:</strong> ASSETS_FOR_SALE</li>
+            </ul>
+
+            <!-- The mailto link will send the email to YOU. You must then forward it to the founder. -->
+            <a class="button" href="mailto:YOUR-EMAIL@DOMAIN.COM?subject=Inquiry about PROJECT_NAME&body=Hello, I am interested in PROJECT_NAME. Please tell me more about it.">
+                🔦 Inquire to Buy This Project
+            </a>
+
+            <p><small><em>This inquiry will be sent to the site curator, who will connect you with the project's founder. Please be serious and include a bit about your revival plans.</em></small></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Listed on The Graveyard. A place for lessons and second chances.</p>
+        <p><small>This is an MVP prototype. Listings are manually processed.</small></p>
+    </footer>
+</body>
+</html>
