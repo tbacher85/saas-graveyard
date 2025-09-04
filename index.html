@@ -6,6 +6,10 @@
     <title>The Graveyard - SaaS Resurrection Marketplace</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <style>
         :root {
             --color-dark: #1a1a2e;
@@ -143,6 +147,24 @@
             color: white;
         }
         
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
         .user-role-badge {
             padding: 0.3rem 0.8rem;
             border-radius: 50px;
@@ -248,6 +270,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             margin-bottom: 1rem;
+            color: white;
         }
         
         .role-description {
@@ -693,6 +716,8 @@
             display: flex;
             margin-bottom: 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
         }
         
         .auth-tab {
@@ -701,12 +726,12 @@
             padding: 1rem;
             cursor: pointer;
             transition: all 0.3s;
-            border-bottom: 3px solid transparent;
+            background: rgba(255, 255, 255, 0.05);
         }
         
         .auth-tab.active {
-            border-bottom: 3px solid var(--color-accent);
-            color: var(--color-accent);
+            background: var(--color-accent);
+            color: white;
         }
         
         .auth-form {
@@ -751,6 +776,56 @@
         .role-option-icon {
             font-size: 2rem;
             margin-bottom: 0.5rem;
+        }
+        
+        .error-message {
+            color: #ff6b6b;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .success-message {
+            color: var(--color-tomb-raider);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .user-dashboard {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .setup-instructions {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .setup-instructions h3 {
+            color: var(--color-tomb-raider);
+            margin-bottom: 1rem;
+        }
+        
+        .setup-instructions ol {
+            margin-left: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .setup-instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .config-code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 1rem 0;
         }
         
         @media (max-width: 768px) {
@@ -805,9 +880,15 @@
                     <li><a href="#" class="nav-link" data-section="how-it-works">How It Works</a></li>
                     <li><a href="#" class="nav-link" data-section="success-stories">Success Stories</a></li>
                     <li><a href="#" id="list-grave-link">List a Project</a></li>
-                    <li class="auth-buttons">
+                    <li class="auth-buttons" id="auth-buttons">
                         <button class="auth-button login-btn" id="login-button">Log In</button>
                         <button class="auth-button signup-btn" id="signup-button">Sign Up</button>
+                    </li>
+                    <li class="user-menu" id="user-menu" style="display: none;">
+                        <div class="user-avatar" id="user-avatar">JD</div>
+                        <span id="user-display-name">John Doe</span>
+                        <span class="user-role-badge tomb-raider-badge" id="user-role-badge">Tomb Raider</span>
+                        <button class="auth-button login-btn" id="logout-button">Log Out</button>
                     </li>
                 </ul>
             </nav>
@@ -815,6 +896,28 @@
     </header>
 
     <div class="container">
+        <section class="setup-instructions" id="setup-instructions">
+            <h3>Firebase Setup Required</h3>
+            <p>To enable authentication, please follow these steps:</p>
+            <ol>
+                <li>Create a Firebase project at <a href="https://console.firebase.google.com/" target="_blank" style="color: var(--color-tomb-raider);">console.firebase.google.com</a></li>
+                <li>Enable Authentication in your Firebase project</li>
+                <li>Add a web app and copy the configuration</li>
+                <li>Replace the Firebase config in the code with your own</li>
+            </ol>
+            <div class="config-code">
+                // Replace this with your Firebase config<br>
+                const firebaseConfig = {<br>
+                &nbsp;&nbsp;apiKey: "YOUR_API_KEY",<br>
+                &nbsp;&nbsp;authDomain: "your-project.firebaseapp.com",<br>
+                &nbsp;&nbsp;projectId: "your-project-id",<br>
+                &nbsp;&nbsp;storageBucket: "your-project.appspot.com",<br>
+                &nbsp;&nbsp;messagingSenderId: "123456789",<br>
+                &nbsp;&nbsp;appId: "YOUR_APP_ID"<br>
+                };
+            </div>
+        </section>
+
         <section class="hero">
             <h1>Where Failed SaaS Finds New Life</h1>
             <p>Discover, acquire, and resurrect technology projects with potential. Perfect for indie developers and small teams.</p>
@@ -847,6 +950,14 @@
             </div>
         </section>
 
+        <section class="user-dashboard" id="user-dashboard">
+            <h2 class="section-title">Your Dashboard</h2>
+            <div class="dashboard-content">
+                <p>Welcome back! Here you can manage your profile, view your inquiries, and track your listings.</p>
+                <!-- Dashboard content will be populated based on user role -->
+            </div>
+        </section>
+
         <section class="search-section">
             <div class="search-box">
                 <input type="text" class="search-input" placeholder="Search by technology, niche, or keyword...">
@@ -865,7 +976,7 @@
             <h2 class="section-title">Available for Resurrection</h2>
 
             <div class="graveyard-grid">
-                <!-- Grave 1 -->
+                <!-- Example Grave 1 -->
                 <div class="grave-card">
                     <div class="grave-card-header">
                         <h3 class="grave-card-title">AnalytixPro</h3>
@@ -893,7 +1004,7 @@
                     </div>
                 </div>
 
-                <!-- Grave 2 -->
+                <!-- Example Grave 2 -->
                 <div class="grave-card">
                     <div class="grave-card-header">
                         <h3 class="grave-card-title">ContentForge</h3>
@@ -921,7 +1032,7 @@
                     </div>
                 </div>
 
-                <!-- Grave 3 -->
+                <!-- Example Grave 3 -->
                 <div class="grave-card">
                     <div class="grave-card-header">
                         <h3 class="grave-card-title">TaskFlow</h3>
@@ -1052,35 +1163,45 @@
                 </div>
                 
                 <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" id="signup-name" required>
+                </div>
+                
+                <div class="form-group">
                     <label class="form-label">Email Address</label>
-                    <input type="email" class="form-input" required>
+                    <input type="email" class="form-input" id="signup-email" required>
                 </div>
                 
                 <div class="form-group">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-input" required>
+                    <input type="password" class="form-input" id="signup-password" required>
+                    <small class="error-message" id="signup-password-error"></small>
                 </div>
                 
                 <div class="form-group">
                     <label class="form-label">Confirm Password</label>
-                    <input type="password" class="form-input" required>
+                    <input type="password" class="form-input" id="signup-confirm-password" required>
+                    <small class="error-message" id="signup-confirm-error"></small>
                 </div>
                 
                 <button type="submit" class="form-submit">Create Account</button>
+                <div class="error-message" id="signup-error"></div>
+                <div class="success-message" id="signup-success"></div>
             </form>
             
             <form id="login-form" class="auth-form">
                 <div class="form-group">
                     <label class="form-label">Email Address</label>
-                    <input type="email" class="form-input" required>
+                    <input type="email" class="form-input" id="login-email" required>
                 </div>
                 
                 <div class="form-group">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-input" required>
+                    <input type="password" class="form-input" id="login-password" required>
                 </div>
                 
                 <button type="submit" class="form-submit">Log In</button>
+                <div class="error-message" id="login-error"></div>
             </form>
         </div>
     </div>
@@ -1203,8 +1324,28 @@
     </footer>
 
     <script>
-        // Modal functionality
-        const listGraveLink = document.getElementById('list-grave-link');
+        // Firebase configuration - REPLACE WITH YOUR CONFIG
+        const firebaseConfig = {
+            apiKey: "AIzaSyA28dAKeUday_3OZ32af_Xzg-cSX5qbopY",
+            authDomain: "saas-graveyard.firebaseapp.com",
+            projectId: "saas-graveyard",
+            storageBucket: "saas-graveyard.firebasestorage.app",
+            messagingSenderId: "750220753010",
+            appId: "1:750220753010:web:9ed594478086feef3faaeb"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        
+        // DOM Elements
+        const authButtons = document.getElementById('auth-buttons');
+        const userMenu = document.getElementById('user-menu');
+        const userAvatar = document.getElementById('user-avatar');
+        const userDisplayName = document.getElementById('user-display-name');
+        const userRoleBadge = document.getElementById('user-role-badge');
+        const logoutButton = document.getElementById('logout-button');
         const authModal = document.getElementById('auth-modal');
         const listGraveModal = document.getElementById('list-grave-modal');
         const inquireModal = document.getElementById('inquire-modal');
@@ -1219,6 +1360,52 @@
         const roleOptions = document.querySelectorAll('.role-option');
         const tombRaiderSignup = document.getElementById('tomb-raider-signup');
         const undertakerSignup = document.getElementById('undertaker-signup');
+        const userDashboard = document.getElementById('user-dashboard');
+        const setupInstructions = document.getElementById('setup-instructions');
+        
+        // Check if Firebase is configured
+        if (firebaseConfig.apiKey === "YOUR_API_KEY") {
+            setupInstructions.style.display = 'block';
+        } else {
+            setupInstructions.style.display = 'none';
+        }
+        
+        // Auth state observer
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in
+                authButtons.style.display = 'none';
+                userMenu.style.display = 'flex';
+                
+                // Get user data from Firestore
+                db.collection('users').doc(user.uid).get().then((doc) => {
+                    if (doc.exists) {
+                        const userData = doc.data();
+                        userDisplayName.textContent = userData.displayName;
+                        userAvatar.textContent = userData.displayName.charAt(0);
+                        
+                        // Set role badge
+                        if (userData.role === 'tomb-raider') {
+                            userRoleBadge.textContent = 'Tomb Raider';
+                            userRoleBadge.className = 'user-role-badge tomb-raider-badge';
+                        } else {
+                            userRoleBadge.textContent = 'Undertaker';
+                            userRoleBadge.className = 'user-role-badge undertaker-badge';
+                        }
+                        
+                        // Show dashboard
+                        userDashboard.style.display = 'block';
+                    }
+                }).catch((error) => {
+                    console.error("Error getting user document:", error);
+                });
+            } else {
+                // User is signed out
+                authButtons.style.display = 'flex';
+                userMenu.style.display = 'none';
+                userDashboard.style.display = 'none';
+            }
+        });
         
         // Open auth modal
         signupButton.addEventListener('click', function(e) {
@@ -1252,22 +1439,40 @@
         // Open list grave modal
         listGraveLink.addEventListener('click', function(e) {
             e.preventDefault();
-            listGraveModal.style.display = 'flex';
+            // Check if user is logged in
+            if (auth.currentUser) {
+                listGraveModal.style.display = 'flex';
+            } else {
+                authModal.style.display = 'flex';
+                switchAuthTab('signup');
+            }
         });
         
         // Open inquire modal
         inquireButtons.forEach(button => {
             button.addEventListener('click', function() {
-                inquireProjectName.textContent = this.getAttribute('data-grave');
-                inquireModal.style.display = 'flex';
+                // Check if user is logged in
+                if (auth.currentUser) {
+                    inquireProjectName.textContent = this.getAttribute('data-grave');
+                    inquireModal.style.display = 'flex';
+                } else {
+                    authModal.style.display = 'flex';
+                    switchAuthTab('signup');
+                }
             });
         });
         
         // Hero CTA also opens inquire modal
         heroCta.addEventListener('click', function(e) {
             e.preventDefault();
-            inquireProjectName.textContent = 'a Project';
-            inquireModal.style.display = 'flex';
+            // Check if user is logged in
+            if (auth.currentUser) {
+                inquireProjectName.textContent = 'a Project';
+                inquireModal.style.display = 'flex';
+            } else {
+                authModal.style.display = 'flex';
+                switchAuthTab('signup');
+            }
         });
         
         // Close modals
@@ -1333,21 +1538,102 @@
             });
         }
         
-        // Form submissions
+        // Sign up form submission
         document.getElementById('signup-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for signing up! You can now explore the graveyard.');
-            authModal.style.display = 'none';
-            this.reset();
+            
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm-password').value;
+            const displayName = document.getElementById('signup-name').value;
+            const selectedRole = document.querySelector('.role-option.selected').getAttribute('data-role');
+            
+            // Clear previous errors
+            document.getElementById('signup-password-error').textContent = '';
+            document.getElementById('signup-confirm-error').textContent = '';
+            document.getElementById('signup-error').textContent = '';
+            document.getElementById('signup-success').textContent = '';
+            
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                document.getElementById('signup-confirm-error').textContent = 'Passwords do not match';
+                return;
+            }
+            
+            // Validate password length
+            if (password.length < 6) {
+                document.getElementById('signup-password-error').textContent = 'Password must be at least 6 characters';
+                return;
+            }
+            
+            // Create user with Firebase Auth
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user;
+                    
+                    // Update user profile
+                    return user.updateProfile({
+                        displayName: displayName
+                    }).then(() => {
+                        // Save additional user data to Firestore
+                        return db.collection('users').doc(user.uid).set({
+                            displayName: displayName,
+                            email: email,
+                            role: selectedRole,
+                            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+                    });
+                })
+                .then(() => {
+                    // Show success message
+                    document.getElementById('signup-success').textContent = 'Account created successfully!';
+                    
+                    // Close modal after a short delay
+                    setTimeout(() => {
+                        authModal.style.display = 'none';
+                    }, 1500);
+                })
+                .catch((error) => {
+                    // Handle errors
+                    document.getElementById('signup-error').textContent = error.message;
+                });
         });
         
+        // Login form submission
         document.getElementById('login-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('You are now logged in!');
-            authModal.style.display = 'none';
-            this.reset();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            // Clear previous errors
+            document.getElementById('login-error').textContent = '';
+            
+            // Sign in with Firebase Auth
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in
+                    authModal.style.display = 'none';
+                })
+                .catch((error) => {
+                    // Handle errors
+                    document.getElementById('login-error').textContent = error.message;
+                });
         });
         
+        // Logout functionality
+        logoutButton.addEventListener('click', function() {
+            auth.signOut().then(() => {
+                // Sign-out successful
+                console.log('User signed out');
+            }).catch((error) => {
+                // An error happened
+                console.error('Sign out error:', error);
+            });
+        });
+        
+        // Form submissions
         document.getElementById('grave-form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your submission! Our team will review your project and contact you shortly.');
