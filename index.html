@@ -1,12 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Graveyard - Affordable SaaS Resurrection Marketplace</title>
     <title>The Graveyard - SaaS Resurrection Marketplace</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-@@ -12,6 +12,8 @@
+        :root {
+            --color-dark: #1a1a2e;
             --color-darker: #16213e;
             --color-accent: #e94560;
             --color-secondary: #533483;
@@ -15,18 +17,97 @@
             --color-light: #f0f0f0;
             --color-gray: #8a8a8a;
             --color-success: #4cc9a4;
-@@ -76,6 +78,7 @@
+            --color-warning: #ff9f43;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: linear-gradient(135deg, var(--color-darker) 0%, var(--color-dark) 100%);
+            color: var(--color-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--color-accent);
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        nav ul {
             display: flex;
             list-style: none;
             gap: 2rem;
             align-items: center;
         }
-
+        
         nav a {
-@@ -105,6 +108,60 @@
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--color-accent);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        nav a:hover {
             color: var(--color-accent);
         }
-
+        
         .auth-buttons {
             display: flex;
             gap: 1rem;
@@ -84,10 +165,44 @@
         .hero {
             text-align: center;
             padding: 4rem 0 3rem;
-@@ -146,6 +203,89 @@
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--color-accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--color-accent);
+        }
+        
+        .cta-button:hover {
+            background: transparent;
+            color: var(--color-accent);
+            transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
         }
-
+        
         .roles-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -174,44 +289,412 @@
         .search-section {
             background: rgba(255, 255, 255, 0.05);
             padding: 2rem;
-@@ -549,99 +689,68 @@
+            border-radius: 15px;
+            margin: 2rem auto;
+            max-width: 700px;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .search-input::placeholder {
+            color: var(--color-gray);
+        }
+        
+        .search-button {
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: var(--color-secondary);
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .search-button:hover {
+            background: var(--color-accent);
+        }
+        
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+        
+        .filter-button {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-secondary);
+            border-radius: 50px;
+            background: transparent;
+            color: var(--color-light);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-button:hover, .filter-button.active {
+            background: var(--color-secondary);
+            border-color: var(--color-secondary);
+        }
+        
+        .graveyard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .grave-card {
+            background: linear-gradient(145deg, rgba(42, 42, 62, 0.8) 0%, rgba(35, 35, 55, 0.8) 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .grave-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .grave-card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .grave-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .grave-card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--color-gray);
+            font-size: 0.9rem;
+        }
+        
+        .grave-card-body {
+            padding: 1.5rem;
+        }
+        
+        .grave-card-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .grave-card-assets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .asset-tag {
+            background: rgba(83, 52, 131, 0.3);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .grave-card-footer {
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .grave-price {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--color-success);
+        }
+        
+        .price-badge {
+            background: var(--color-warning);
+            color: var(--color-dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .inquire-button {
+            background: var(--color-accent);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 600;
+        }
+        
+        .inquire-button:hover {
+            background: #ff5c77;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, var(--color-darker) 0%, var(--color-dark) 100%);
+            border-radius: 15px;
+            max-width: 600px;
+            width: 100%;
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--color-gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--color-accent);
+        }
+        
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            background: var(--color-accent);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        
+        .form-submit:hover {
+            background: #ff5c77;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: white;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            color: rgba(255, 255, 255, 0.1);
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .author-name {
+            font-weight: 600;
+        }
+        
+        .author-role {
+            font-size: 0.9rem;
+            color: var(--color-gray);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--color-gray);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--color-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+        
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .step-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .step-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
-
-        .success-stories {
-            display: none;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            margin: 2rem 0;
-        }
         
-        .success-stories.active {
-            display: block;
-        }
-        
-        .about-section {
-            display: none;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            margin: 2rem 0;
-        }
-        
-        .about-section.active {
-            display: block;
         .auth-modal-tabs {
             display: flex;
             margin-bottom: 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .faq-section {
-            display: none;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            margin: 2rem 0;
+        
         .auth-tab {
             flex: 1;
             text-align: center;
@@ -220,42 +703,26 @@
             transition: all 0.3s;
             border-bottom: 3px solid transparent;
         }
-
-        .faq-section.active {
-            display: block;
+        
         .auth-tab.active {
             border-bottom: 3px solid var(--color-accent);
             color: var(--color-accent);
         }
-
-        .contact-section {
+        
         .auth-form {
             display: none;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            margin: 2rem 0;
         }
-
-        .contact-section.active {
+        
         .auth-form.active {
             display: block;
         }
-
-        .terms-section {
-            display: none;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            margin: 2rem 0;
+        
         .role-selection {
             display: flex;
             gap: 1rem;
             margin: 1rem 0;
         }
-
-        .terms-section.active {
-            display: block;
+        
         .role-option {
             flex: 1;
             text-align: center;
@@ -265,59 +732,39 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-
-        .privacy-section {
-            display: none;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            margin: 2rem 0;
+        
         .role-option.selected {
             border-color: var(--color-accent);
             background: rgba(233, 69, 96, 0.1);
         }
-
-        .privacy-section.active {
-            display: block;
+        
         .tomb-raider-option.selected {
             border-color: var(--color-tomb-raider);
             background: rgba(76, 201, 164, 0.1);
         }
-
-        .section-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
         
-        .section-nav-button {
-            padding: 0.7rem 1.5rem;
-            border: 1px solid var(--color-secondary);
-            border-radius: 50px;
-            background: transparent;
-            color: var(--color-light);
-            cursor: pointer;
-            transition: all 0.3s;
         .undertaker-option.selected {
             border-color: var(--color-undertaker);
             background: rgba(156, 66, 245, 0.1);
         }
-
-        .section-nav-button:hover, .section-nav-button.active {
-            background: var(--color-secondary);
-            border-color: var(--color-secondary);
+        
         .role-option-icon {
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
-
+        
         @media (max-width: 768px) {
-@@ -656,6 +765,10 @@
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
                 justify-content: center;
             }
-
+            
             .auth-buttons {
                 margin-top: 1rem;
             }
@@ -325,7 +772,16 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-@@ -672,6 +785,10 @@
+            
+            .graveyard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .footer-links {
                 flex-direction: column;
                 gap: 1rem;
             }
@@ -336,7 +792,16 @@
         }
     </style>
 </head>
-@@ -688,6 +805,10 @@
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-skull-crossbones"></i></div>
+                <div class="logo-text">The Graveyard</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-section="browse">Browse Graves</a></li>
                     <li><a href="#" class="nav-link" data-section="how-it-works">How It Works</a></li>
                     <li><a href="#" class="nav-link" data-section="success-stories">Success Stories</a></li>
                     <li><a href="#" id="list-grave-link">List a Project</a></li>
@@ -347,7 +812,12 @@
                 </ul>
             </nav>
         </div>
-@@ -700,6 +821,32 @@ <h1>Where Failed SaaS Finds New Life</h1>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Where Failed SaaS Finds New Life</h1>
+            <p>Discover, acquire, and resurrect technology projects with potential. Perfect for indie developers and small teams.</p>
             <a href="#" class="cta-button" id="hero-cta">Resurrect a Project</a>
         </section>
 
@@ -380,51 +850,33 @@
         <section class="search-section">
             <div class="search-box">
                 <input type="text" class="search-input" placeholder="Search by technology, niche, or keyword...">
-@@ -801,90 +948,6 @@ <h3 class="grave-card-title">TaskFlow</h3>
-                        <button class="inquire-button" data-grave="TaskFlow">Inquire to Revive</button>
-                    </div>
-                </div>
+                <button class="search-button"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div class="filters">
+                <button class="filter-button active">All</button>
+                <button class="filter-button">Under $1K</button>
+                <button class="filter-button">With Codebase</button>
+                <button class="filter-button">Profitable</button>
+                <button class="filter-button">Recent</button>
+            </div>
+        </section>
 
-                <!-- Grave 4 -->
+        <section id="browse" class="active-section">
+            <h2 class="section-title">Available for Resurrection</h2>
+
+            <div class="graveyard-grid">
+                <!-- Grave 1 -->
                 <div class="grave-card">
                     <div class="grave-card-header">
-                        <h3 class="grave-card-title">SocialScheduler</h3>
+                        <h3 class="grave-card-title">AnalytixPro</h3>
                         <div class="grave-card-meta">
-                            <span><i class="fas fa-coins"></i> Was $9/mo</span>
-                            <span><i class="fas fa-users"></i> 310 users</span>
+                            <span><i class="fas fa-coins"></i> Was $29/mo</span>
+                            <span><i class="fas fa-users"></i> 142 users</span>
                         </div>
                     </div>
                     <div class="grave-card-body">
                         <p class="grave-card-description">
-                            Simple social media scheduling tool. Founder moved on to other projects but the codebase is solid.
-                        </p>
-                        <div class="grave-card-assets">
-                            <span class="asset-tag"><i class="fas fa-globe"></i> Domain</span>
-                            <span class="asset-tag"><i class="fas fa-code"></i> Full Codebase</span>
-                            <span class="asset-tag"><i class="fas fa-file-alt"></i> Documentation</span>
-                        </div>
-                    </div>
-                    <div class="grave-card-footer">
-                        <div>
-                            <div class="grave-price">$600</div>
-                            <div class="price-badge">Budget Friendly</div>
-                        </div>
-                        <button class="inquire-button" data-grave="SocialScheduler">Inquire to Revive</button>
-                    </div>
-                </div>
-
-                <!-- Grave 5 -->
-                <div class="grave-card">
-                    <div class="grave-card-header">
-                        <h3 class="grave-card-title">EmailMetrics</h3>
-                        <div class="grave-card-meta">
-                            <span><i class="fas fa-coins"></i> Was $24/mo</span>
-                            <span><i class="fas fa-users"></i> 98 users</span>
-                        </div>
-                    </div>
-                    <div class="grave-card-body">
-                        <p class="grave-card-description">
-                            Email marketing analytics platform. Good technology but couldn't compete with larger players in the space.
+                            Advanced analytics dashboard with 12+ integrations. Failed due to high customer acquisition costs in a competitive market.
                         </p>
                         <div class="grave-card-assets">
                             <span class="asset-tag"><i class="fas fa-globe"></i> Domain</span>
@@ -434,25 +886,53 @@
                     </div>
                     <div class="grave-card-footer">
                         <div>
-                            <div class="grave-price">$950</div>
-                            <div class="price-badge">Great Deal</div>
+                            <div class="grave-price">$1,200</div>
+                            <div class="price-badge">Budget Friendly</div>
                         </div>
-                        <button class="inquire-button" data-grave="EmailMetrics">Inquire to Revive</button>
+                        <button class="inquire-button" data-grave="AnalytixPro">Inquire to Revive</button>
                     </div>
                 </div>
 
-                <!-- Grave 6 -->
+                <!-- Grave 2 -->
                 <div class="grave-card">
                     <div class="grave-card-header">
-                        <h3 class="grave-card-title">DevHelper</h3>
+                        <h3 class="grave-card-title">ContentForge</h3>
                         <div class="grave-card-meta">
-                            <span><i class="fas fa-coins"></i> Was $14/mo</span>
-                            <span><i class="fas fa-users"></i> 175 users</span>
+                            <span><i class="fas fa-coins"></i> Was $19/mo</span>
+                            <span><i class="fas fa-users"></i> 87 users</span>
                         </div>
                     </div>
                     <div class="grave-card-body">
                         <p class="grave-card-description">
-                            Developer tool for code snippet management. Solid product but lacked marketing investment.
+                            AI-powered content generation platform. Solid technology but founder ran out of funding for marketing.
+                        </p>
+                        <div class="grave-card-assets">
+                            <span class="asset-tag"><i class="fas fa-globe"></i> Domain</span>
+                            <span class="asset-tag"><i class="fas fa-code"></i> Full Codebase</span>
+                            <span class="asset-tag"><i class="fas fa-server"></i> API Access</span>
+                        </div>
+                    </div>
+                    <div class="grave-card-footer">
+                        <div>
+                            <div class="grave-price">$850</div>
+                            <div class="price-badge">Great Deal</div>
+                        </div>
+                        <button class="inquire-button" data-grave="ContentForge">Inquire to Revive</button>
+                    </div>
+                </div>
+
+                <!-- Grave 3 -->
+                <div class="grave-card">
+                    <div class="grave-card-header">
+                        <h3 class="grave-card-title">TaskFlow</h3>
+                        <div class="grave-card-meta">
+                            <span><i class="fas fa-coins"></i> Was $15/mo</span>
+                            <span><i class="fas fa-users"></i> 260 users</span>
+                        </div>
+                    </div>
+                    <div class="grave-card-body">
+                        <p class="grave-card-description">
+                            Team productivity SaaS with unique workflow automation. Discontinued due to founder's change of focus.
                         </p>
                         <div class="grave-card-assets">
                             <span class="asset-tag"><i class="fas fa-globe"></i> Domain</span>
@@ -462,83 +942,77 @@
                     </div>
                     <div class="grave-card-footer">
                         <div>
-                            <div class="grave-price">$750</div>
-                            <div class="price-badge">Budget Friendly</div>
+                            <div class="grave-price">$1,500</div>
+                            <div class="price-badge">Popular</div>
                         </div>
-                        <button class="inquire-button" data-grave="DevHelper">Inquire to Revive</button>
+                        <button class="inquire-button" data-grave="TaskFlow">Inquire to Revive</button>
                     </div>
                 </div>
             </div>
         </section>
 
-@@ -894,20 +957,20 @@ <h2 class="section-title">How It Works</h2>
+        <section id="how-it-works" class="about-section">
+            <h2 class="section-title">How It Works</h2>
+            
             <div class="how-it-works">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">List Your Project</h3>
-                    <p>Founders share their failed SaaS projects, including codebase, domain, and user data.</p>
                     <h3 class="step-title">Choose Your Role</h3>
                     <p>Sign up as a Tomb Raider (buyer) or Undertaker (seller) based on your needs.</p>
                 </div>
-
+                
                 <div class="step-card">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Get Discovered</h3>
-                    <p>Developers and entrepreneurs browse our marketplace for projects that match their skills.</p>
                     <h3 class="step-title">Explore or List</h3>
                     <p>Tomb Raiders browse projects, while Undertakers list their failed SaaS projects.</p>
                 </div>
-
+                
                 <div class="step-card">
                     <div class="step-number">3</div>
                     <h3 class="step-title">Connect & Revive</h3>
-                    <p>We facilitate the connection between sellers and buyers to give projects a second life.</p>
                     <p>We facilitate connections between buyers and sellers to give projects a second life.</p>
                 </div>
             </div>
         </section>
-@@ -918,50 +981,107 @@ <h2 class="section-title">Resurrection Success Stories</h2>
+
+        <section id="success-stories" class="about-section">
+            <h2 class="section-title">Resurrection Success Stories</h2>
+
             <div class="testimonials">
                 <div class="testimonial">
                     <p class="testimonial-text">
-                        "Acquired SocialScheduler for $600 through The Graveyard. With some rebranding and improved onboarding, we've grown it to $2k MRR in just 9 months."
                         "As a Tomb Raider, I found SocialScheduler for just $600. With some rebranding and improved onboarding, we've grown it to $2k MRR in just 9 months."
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">MJ</div>
                         <div class="author-info">
                             <div class="author-name">Michael Johnson</div>
-                            <div class="author-role">Founder, ContentCalendar</div>
                             <div class="user-role-badge tomb-raider-badge">Tomb Raider</div>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="testimonial">
                     <p class="testimonial-text">
-                        "Instead of building from scratch, we found the perfect foundation in CodeHelper. The code quality was excellent and we launched our version in just 3 months."
                         "As an Undertaker, I was able to recover some value from my failed project and see it revived by someone with more time and resources."
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">SL</div>
                         <div class="author-info">
                             <div class="author-name">Sarah Lin</div>
-                            <div class="author-role">CTO, DevAssist</div>
                             <div class="user-role-badge undertaker-badge">Undertaker</div>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="testimonial">
                     <p class="testimonial-text">
-                        "The Graveyard helped me find a project that matched my skills perfectly. I acquired DataViz for $800 and pivoted it to a new niche where it's now thriving."
                         "The Graveyard helped me find a project that matched my skills perfectly. I acquired DataViz for $800 and pivoted it to a new niche."
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">RP</div>
                         <div class="author-info">
                             <div class="author-name">Robert Parker</div>
-                            <div class="author-role">Founder, InsightTools</div>
                             <div class="user-role-badge tomb-raider-badge">Tomb Raider</div>
                         </div>
                     </div>
@@ -547,11 +1021,6 @@
         </section>
     </div>
 
-        <div class="section-nav">
-            <button class="section-nav-button active" data-section="browse">Browse Projects</button>
-            <button class="section-nav-button" data-section="how-it-works">How It Works</button>
-            <button class="section-nav-button" data-section="success-stories">Success Stories</button>
-            <button class="section-nav-button" id="open-list-modal">List a Project</button>
     <!-- Auth Modal -->
     <div class="modal" id="auth-modal">
         <div class="modal-content">
@@ -616,28 +1085,112 @@
         </div>
     </div>
 
-@@ -1020,11 +1140,6 @@ <h2 class="modal-title">List Your Project</h2>
-                    <input type="number" class="form-input" placeholder="Enter amount">
-                </div>
-
+    <!-- List a Grave Modal -->
+    <div class="modal" id="list-grave-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 class="modal-title">List Your Project</h2>
+            <form id="grave-form">
                 <div class="form-group">
-                    <label class="form-label">Your Contact Email</label>
-                    <input type="email" class="form-input" required>
+                    <label class="form-label">Project Name</label>
+                    <input type="text" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Reason for Discontinuation</label>
+                    <select class="form-select" required>
+                        <option value="">Select primary reason...</option>
+                        <option>Ran out of funding</option>
+                        <option>Lack of market need</option>
+                        <option>Founder disputes</option>
+                        <option>Acquired another opportunity</option>
+                        <option>Technical challenges</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Project Description & Lessons Learned</label>
+                    <textarea class="form-textarea" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Assets Available</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="assets"> Domain Name
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="assets"> Codebase
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="assets"> User Database
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="assets"> Social Accounts
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="assets"> Documentation
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Asking Price (USD)</label>
+                    <input type="number" class="form-input" placeholder="Enter amount">
                 </div>
                 
                 <button type="submit" class="form-submit">Submit for Review</button>
             </form>
         </div>
-@@ -1076,12 +1191,12 @@ <h2 class="modal-title">Inquire About <span id="inquire-project-name"></span></h
+    </div>
+
+    <!-- Inquire Modal -->
+    <div class="modal" id="inquire-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 class="modal-title">Inquire About <span id="inquire-project-name"></span></h2>
+            <form id="inquire-form">
+                <div class="form-group">
+                    <label class="form-label">Your Name</label>
+                    <input type="text" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Your Email</label>
+                    <input type="email" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Your Background/Experience</label>
+                    <select class="form-select" required>
+                        <option value="">Select your background...</option>
+                        <option>Developer/Technical Founder</option>
+                        <option>Marketing/Business Founder</option>
+                        <option>Investor</option>
+                        <option>Company looking to acquire</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Your Revival Plan</label>
+                    <textarea class="form-textarea" placeholder="Briefly describe how you plan to revive this project..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Offer Price (USD)</label>
+                    <input type="number" class="form-input" placeholder="Enter your offer amount">
+                </div>
+                
+                <button type="submit" class="form-submit">Submit Inquiry</button>
+            </form>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="#" class="footer-link" data-section="about">About Us</a>
-                <a href="#" class="footer-link" data-section="how-it-works">How It Works</a>
-                <a href="#" class="footer-link" data-section="faq">FAQ</a>
-                <a href="#" class="footer-link" data-section="contact">Contact</a>
-                <a href="#" class="footer-link" data-section="terms">Terms of Service</a>
-                <a href="#" class="footer-link" data-section="privacy">Privacy Policy</a>
                 <a href="#">About Us</a>
                 <a href="#">How It Works</a>
                 <a href="#">FAQ</a>
@@ -647,11 +1200,11 @@
             </div>
             <p>© 2023 The Graveyard. All rights reserved.</p>
         </div>
-@@ -1090,24 +1205,52 @@ <h2 class="modal-title">Inquire About <span id="inquire-project-name"></span></h
+    </footer>
+
     <script>
         // Modal functionality
         const listGraveLink = document.getElementById('list-grave-link');
-        const openListModal = document.getElementById('open-list-modal');
         const authModal = document.getElementById('auth-modal');
         const listGraveModal = document.getElementById('list-grave-modal');
         const inquireModal = document.getElementById('inquire-modal');
@@ -659,9 +1212,6 @@
         const inquireButtons = document.querySelectorAll('.inquire-button');
         const inquireProjectName = document.getElementById('inquire-project-name');
         const heroCta = document.getElementById('hero-cta');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sectionNavButtons = document.querySelectorAll('.section-nav-button');
-        const footerLinks = document.querySelectorAll('.footer-link');
         const signupButton = document.getElementById('signup-button');
         const loginButton = document.getElementById('login-button');
         const authTabs = document.querySelectorAll('.auth-tab');
@@ -677,12 +1227,9 @@
             document.getElementById('auth-modal-title').textContent = 'Join The Graveyard';
             switchAuthTab('signup');
         });
-
-        // Open list grave modal
-        listGraveLink.addEventListener('click', function(e) {
+        
         loginButton.addEventListener('click', function(e) {
             e.preventDefault();
-            listGraveModal.style.display = 'flex';
             authModal.style.display = 'flex';
             document.getElementById('auth-modal-title').textContent = 'Log In to Your Account';
             switchAuthTab('login');
@@ -701,14 +1248,28 @@
             switchAuthTab('signup');
             selectRole('undertaker');
         });
-
-        openListModal.addEventListener('click', function(e) {
+        
         // Open list grave modal
         listGraveLink.addEventListener('click', function(e) {
             e.preventDefault();
             listGraveModal.style.display = 'flex';
         });
-@@ -1130,13 +1273,17 @@ <h2 class="modal-title">Inquire About <span id="inquire-project-name"></span></h
+        
+        // Open inquire modal
+        inquireButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                inquireProjectName.textContent = this.getAttribute('data-grave');
+                inquireModal.style.display = 'flex';
+            });
+        });
+        
+        // Hero CTA also opens inquire modal
+        heroCta.addEventListener('click', function(e) {
+            e.preventDefault();
+            inquireProjectName.textContent = 'a Project';
+            inquireModal.style.display = 'flex';
+        });
+        
         // Close modals
         closeButtons.forEach(button => {
             button.addEventListener('click', function() {
@@ -717,7 +1278,7 @@
                 inquireModal.style.display = 'none';
             });
         });
-
+        
         // Close modal when clicking outside
         window.addEventListener('click', function(e) {
             if (e.target === authModal) {
@@ -726,10 +1287,11 @@
             if (e.target === listGraveModal) {
                 listGraveModal.style.display = 'none';
             }
-@@ -1145,7 +1292,62 @@ <h2 class="modal-title">Inquire About <span id="inquire-project-name"></span></h
+            if (e.target === inquireModal) {
+                inquireModal.style.display = 'none';
             }
         });
-
+        
         // Auth tabs
         authTabs.forEach(tab => {
             tab.addEventListener('click', function() {
@@ -789,68 +1351,49 @@
         document.getElementById('grave-form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your submission! Our team will review your project and contact you shortly.');
-@@ -1192,64 +1394,6 @@ <h2 class="modal-title">Inquire About <span id="inquire-project-name"></span></h
+            listGraveModal.style.display = 'none';
+            this.reset();
+        });
+        
+        document.getElementById('inquire-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Your inquiry has been sent! We will connect you with the project owner shortly.');
+            inquireModal.style.display = 'none';
+            this.reset();
+        });
+        
+        // Filter buttons
+        const filterButtons = document.querySelectorAll('.filter-button');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Simple filter functionality
+                const filterValue = this.textContent.toLowerCase();
+                const cards = document.querySelectorAll('.grave-card');
+                
+                cards.forEach(card => {
+                    const price = card.querySelector('.grave-price').textContent;
+                    const priceValue = parseInt(price.replace('$', '').replace(',', ''));
+                    
+                    if (filterValue === 'all') {
+                        card.style.display = 'block';
+                    } else if (filterValue === 'under $1k' && priceValue < 1000) {
+                        card.style.display = 'block';
+                    } else if (filterValue === 'with codebase') {
+                        const assets = card.querySelector('.grave-card-assets').textContent;
+                        if (assets.includes('Codebase')) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    } else {
+                        card.style.display = 'none';
+                    }
                 });
             });
         });
-        
-        // Navigation between sections
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.active-section, .about-section').forEach(section => {
-                section.style.display = 'none';
-            });
-            
-            // Show selected section
-            document.getElementById(sectionId).style.display = 'block';
-            
-            // Update nav highlighting
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('data-section') === sectionId) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Update section nav highlighting
-            sectionNavButtons.forEach(button => {
-                button.classList.remove('active');
-                if (button.getAttribute('data-section') === sectionId) {
-                    button.classList.add('active');
-                }
-            });
-        }
-        
-        // Set up navigation links
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const sectionId = this.getAttribute('data-section');
-                showSection(sectionId);
-            });
-        });
-        
-        // Set up section nav buttons
-        sectionNavButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const sectionId = this.getAttribute('data-section');
-                if (sectionId) {
-                    showSection(sectionId);
-                }
-            });
-        });
-        
-        // Set up footer links
-        footerLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const sectionId = this.getAttribute('data-section');
-                showSection(sectionId);
-            });
-        });
-        
-        // Initialize the page
-        showSection('browse');
     </script>
 </body>
 </html>
