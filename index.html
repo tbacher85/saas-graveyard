@@ -225,579 +225,6 @@
             box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
         }
         
-        .roles-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-        
-        .role-card {
-            background: linear-gradient(145deg, rgba(42, 42, 62, 0.8) 0%, rgba(35, 35, 55, 0.8) 100%);
-            border-radius: 15px;
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s;
-        }
-        
-        .role-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .tomb-raider-card {
-            border-top: 5px solid var(--color-tomb-raider);
-        }
-        
-        .undertaker-card {
-            border-top: 5px solid var(--color-undertaker);
-        }
-        
-        .role-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .tomb-raider-icon {
-            color: var(--color-tomb-raider);
-        }
-        
-        .undertaker-icon {
-            color: var(--color-undertaker);
-        }
-        
-        .role-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .role-description {
-            color: var(--color-gray);
-            margin-bottom: 1.5rem;
-        }
-        
-        .role-button {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .tomb-raider-button {
-            background: var(--color-tomb-raider);
-            color: var(--color-dark);
-        }
-        
-        .tomb-raider-button:hover {
-            background: transparent;
-            color: var(--color-tomb-raider);
-            border: 2px solid var(--color-tomb-raider);
-        }
-        
-        .undertaker-button {
-            background: var(--color-undertaker);
-            color: white;
-        }
-        
-        .undertaker-button:hover {
-            background: transparent;
-            color: var(--color-undertaker);
-            border: 2px solid var(--color-undertaker);
-        }
-        
-        .search-section {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem auto;
-            max-width: 700px;
-        }
-        
-        .search-box {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .search-input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-        }
-        
-        .search-input::placeholder {
-            color: var(--color-gray);
-        }
-        
-        .search-button {
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            background: var(--color-secondary);
-            color: white;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .search-button:hover {
-            background: var(--color-accent);
-        }
-        
-        .filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-            justify-content: center;
-        }
-        
-        .filter-button {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--color-secondary);
-            border-radius: 50px;
-            background: transparent;
-            color: var(--color-light);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .filter-button:hover, .filter-button.active {
-            background: var(--color-secondary);
-            border-color: var(--color-secondary);
-        }
-        
-        .graveyard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .grave-card {
-            background: linear-gradient(145deg, rgba(42, 42, 62, 0.8) 0%, rgba(35, 35, 55, 0.8) 100%);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .grave-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-        }
-        
-        .grave-card-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .grave-card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-        
-        .grave-card-meta {
-            display: flex;
-            justify-content: space-between;
-            color: var(--color-gray);
-            font-size: 0.9rem;
-        }
-        
-        .grave-card-body {
-            padding: 1.5rem;
-        }
-        
-        .grave-card-description {
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        .grave-card-assets {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .asset-tag {
-            background: rgba(83, 52, 131, 0.3);
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-        
-        .grave-card-footer {
-            padding: 1.5rem;
-            background: rgba(0, 0, 0, 0.2);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .grave-price {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: var(--color-success);
-        }
-        
-        .price-badge {
-            background: var(--color-warning);
-            color: var(--color-dark);
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        
-        .inquire-button {
-            background: var(--color-accent);
-            color: white;
-            border: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-weight: 600;
-        }
-        
-        .inquire-button:hover {
-            background: #ff5c77;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-        
-        .modal-content {
-            background: linear-gradient(135deg, var(--color-darker) 0%, var(--color-dark) 100%);
-            border-radius: 15px;
-            max-width: 600px;
-            width: 100%;
-            padding: 2.5rem;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            color: var(--color-gray);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        .close-modal:hover {
-            color: var(--color-accent);
-        }
-        
-        .modal-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .form-input, .form-textarea, .form-select {
-            width: 100%;
-            padding: 1rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            font-family: 'Source Sans Pro', sans-serif;
-        }
-        
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .form-submit {
-            background: var(--color-accent);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: background 0.3s;
-            width: 100%;
-        }
-        
-        .form-submit:hover {
-            background: #ff5c77;
-        }
-        
-        .checkbox-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            text-align: center;
-            margin: 3rem 0 2rem;
-            color: white;
-        }
-        
-        .testimonials {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .testimonial {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            position: relative;
-        }
-        
-        .testimonial:before {
-            content: '"';
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            position: absolute;
-            top: -1rem;
-            left: 1rem;
-            color: rgba(255, 255, 255, 0.1);
-            line-height: 1;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--color-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-        
-        .author-info {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .author-name {
-            font-weight: 600;
-        }
-        
-        .author-role {
-            font-size: 0.9rem;
-            color: var(--color-gray);
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--color-gray);
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1.5rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a {
-            color: var(--color-gray);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--color-accent);
-        }
-        
-        .how-it-works {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .step-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-        }
-        
-        .step-number {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--color-accent);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin: 0 auto 1.5rem;
-        }
-        
-        .step-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .auth-modal-tabs {
-            display: flex;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px 8px 0 0;
-            overflow: hidden;
-        }
-        
-        .auth-tab {
-            flex: 1;
-            text-align: center;
-            padding: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            background: rgba(255, 255, 255, 0.05);
-        }
-        
-        .auth-tab.active {
-            background: var(--color-accent);
-            color: white;
-        }
-        
-        .auth-form {
-            display: none;
-        }
-        
-        .auth-form.active {
-            display: block;
-        }
-        
-        .role-selection {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .role-option {
-            flex: 1;
-            text-align: center;
-            padding: 1.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .role-option.selected {
-            border-color: var(--color-accent);
-            background: rgba(233, 69, 96, 0.1);
-        }
-        
-        .tomb-raider-option.selected {
-            border-color: var(--color-tomb-raider);
-            background: rgba(76, 201, 164, 0.1);
-        }
-        
-        .undertaker-option.selected {
-            border-color: var(--color-undertaker);
-            background: rgba(156, 66, 245, 0.1);
-        }
-        
-        .role-option-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .error-message {
-            color: #ff6b6b;
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .success-message {
-            color: var(--color-tomb-raider);
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .user-dashboard {
-            display: none;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-        }
-        
         .setup-instructions {
             background: rgba(255, 255, 255, 0.05);
             padding: 2rem;
@@ -828,6 +255,77 @@
             margin: 1rem 0;
         }
         
+        .debug-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .debug-info h3 {
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        
+        .status-active {
+            background-color: var(--color-success);
+        }
+        
+        .status-inactive {
+            background-color: var(--color-accent);
+        }
+        
+        .debug-log {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 1rem;
+        }
+        
+        .log-entry {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .log-error {
+            color: #ff6b6b;
+        }
+        
+        .log-success {
+            color: var(--color-success);
+        }
+        
+        .log-info {
+            color: var(--color-light);
+        }
+        
+        .test-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .test-button {
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: var(--color-secondary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -847,23 +345,6 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
-            .graveyard-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .search-box {
-                flex-direction: column;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .role-selection {
-                flex-direction: column;
-            }
         }
     </style>
 </head>
@@ -876,9 +357,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#" class="nav-link active" data-section="browse">Browse Graves</a></li>
-                    <li><a href="#" class="nav-link" data-section="how-it-works">How It Works</a></li>
-                    <li><a href="#" class="nav-link" data-section="success-stories">Success Stories</a></li>
+                    <li><a href="#" class="nav-link active">Browse Graves</a></li>
+                    <li><a href="#" class="nav-link">How It Works</a></li>
+                    <li><a href="#" class="nav-link">Success Stories</a></li>
                     <li><a href="#" id="list-grave-link">List a Project</a></li>
                     <li class="auth-buttons" id="auth-buttons">
                         <button class="auth-button login-btn" id="login-button">Log In</button>
@@ -896,25 +377,44 @@
     </header>
 
     <div class="container">
-        <section class="setup-instructions" id="setup-instructions">
-            <h3>Firebase Setup Required</h3>
-            <p>To enable authentication, please follow these steps:</p>
+        <section class="setup-instructions">
+            <h3>Firebase Setup Instructions</h3>
+            <p>For authentication to work on GitHub Pages, you need to:</p>
             <ol>
-                <li>Create a Firebase project at <a href="https://console.firebase.google.com/" target="_blank" style="color: var(--color-tomb-raider);">console.firebase.google.com</a></li>
-                <li>Enable Authentication in your Firebase project</li>
-                <li>Add a web app and copy the configuration</li>
-                <li>Replace the Firebase config in the code with your own</li>
+                <li>Go to your <a href="https://console.firebase.google.com/" target="_blank" style="color: var(--color-tomb-raider);">Firebase Console</a></li>
+                <li>Select your project</li>
+                <li>Go to Authentication → Settings → Authorized domains</li>
+                <li>Add your GitHub Pages domain (e.g., <code>yourusername.github.io</code>)</li>
+                <li>Replace the Firebase config below with your actual project config</li>
             </ol>
             <div class="config-code">
                 // Replace this with your Firebase config<br>
                 const firebaseConfig = {<br>
-                &nbsp;&nbsp;apiKey: "YOUR_API_KEY",<br>
-                &nbsp;&nbsp;authDomain: "your-project.firebaseapp.com",<br>
-                &nbsp;&nbsp;projectId: "your-project-id",<br>
-                &nbsp;&nbsp;storageBucket: "your-project.appspot.com",<br>
-                &nbsp;&nbsp;messagingSenderId: "123456789",<br>
-                &nbsp;&nbsp;appId: "YOUR_APP_ID"<br>
+                &nbsp;&nbsp;apiKey: "AIzaSyA28dAKeUday_3OZ32af_Xzg-cSX5qbopY",<br>
+                &nbsp;&nbsp;authDomain: "saas-graveyard.firebaseapp.com",<br>
+                &nbsp;&nbsp;projectId: "saas-graveyard",<br>
+                &nbsp;&nbsp;storageBucket: "saas-graveyard.firebasestorage.app",<br>
+                &nbsp;&nbsp;messagingSenderId: "750220753010",<br>
+                &nbsp;&nbsp;appId: "1:750220753010:web:9ed594478086feef3faaeb"<br>
                 };
+            </div>
+        </section>
+
+        <section class="debug-info">
+            <h3>Firebase Debug Information</h3>
+            <div>
+                <p><span class="status-indicator" id="firebase-status"></span> Firebase Initialization: <span id="firebase-status-text">Checking...</span></p>
+                <p><span class="status-indicator" id="auth-status"></span> Authentication Status: <span id="auth-status-text">Checking...</span></p>
+                <p><span class="status-indicator" id="firestore-status"></span> Firestore Status: <span id="firestore-status-text">Checking...</span></p>
+            </div>
+            
+            <div class="test-buttons">
+                <button class="test-button" id="test-auth">Test Authentication</button>
+                <button class="test-button" id="test-firestore">Test Firestore</button>
+            </div>
+            
+            <div class="debug-log" id="debug-log">
+                <div class="log-entry log-info">Debug log initialized</div>
             </div>
         </section>
 
@@ -923,763 +423,111 @@
             <p>Discover, acquire, and resurrect technology projects with potential. Perfect for indie developers and small teams.</p>
             <a href="#" class="cta-button" id="hero-cta">Resurrect a Project</a>
         </section>
-
-        <section class="roles-section">
-            <div class="role-card tomb-raider-card">
-                <div class="role-icon tomb-raider-icon">
-                    <i class="fas fa-helmet-battle"></i>
-                </div>
-                <h2 class="role-title">Tomb Raiders</h2>
-                <p class="role-description">
-                    Adventurous developers and entrepreneurs seeking hidden treasures among failed SaaS projects. 
-                    Find undervalued projects with potential for resurrection and new life.
-                </p>
-                <a href="#" class="role-button tomb-raider-button" id="tomb-raider-signup">Become a Tomb Raider</a>
-            </div>
-            
-            <div class="role-card undertaker-card">
-                <div class="role-icon undertaker-icon">
-                    <i class="fas fa-coffin"></i>
-                </div>
-                <h2 class="role-title">Undertakers</h2>
-                <p class="role-description">
-                    Founders who need to respectfully lay their projects to rest while recouping some value. 
-                    List your failed SaaS projects for others to discover and revive.
-                </p>
-                <a href="#" class="role-button undertaker-button" id="undertaker-signup">Become an Undertaker</a>
-            </div>
-        </section>
-
-        <section class="user-dashboard" id="user-dashboard">
-            <h2 class="section-title">Your Dashboard</h2>
-            <div class="dashboard-content">
-                <p>Welcome back! Here you can manage your profile, view your inquiries, and track your listings.</p>
-                <!-- Dashboard content will be populated based on user role -->
-            </div>
-        </section>
-
-        <section class="search-section">
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="Search by technology, niche, or keyword...">
-                <button class="search-button"><i class="fas fa-search"></i> Search</button>
-            </div>
-            <div class="filters">
-                <button class="filter-button active">All</button>
-                <button class="filter-button">Under $1K</button>
-                <button class="filter-button">With Codebase</button>
-                <button class="filter-button">Profitable</button>
-                <button class="filter-button">Recent</button>
-            </div>
-        </section>
-
-        <section id="browse" class="active-section">
-            <h2 class="section-title">Available for Resurrection</h2>
-
-            <div class="graveyard-grid">
-                <!-- Example Grave 1 -->
-                <div class="grave-card">
-                    <div class="grave-card-header">
-                        <h3 class="grave-card-title">AnalytixPro</h3>
-                        <div class="grave-card-meta">
-                            <span><i class="fas fa-coins"></i> Was $29/mo</span>
-                            <span><i class="fas fa-users"></i> 142 users</span>
-                        </div>
-                    </div>
-                    <div class="grave-card-body">
-                        <p class="grave-card-description">
-                            Advanced analytics dashboard with 12+ integrations. Failed due to high customer acquisition costs in a competitive market.
-                        </p>
-                        <div class="grave-card-assets">
-                            <span class="asset-tag"><i class="fas fa-globe"></i> Domain</span>
-                            <span class="asset-tag"><i class="fas fa-code"></i> Full Codebase</span>
-                            <span class="asset-tag"><i class="fas fa-database"></i> User Database</span>
-                        </div>
-                    </div>
-                    <div class="grave-card-footer">
-                        <div>
-                            <div class="grave-price">$1,200</div>
-                            <div class="price-badge">Budget Friendly</div>
-                        </div>
-                        <button class="inquire-button" data-grave="AnalytixPro">Inquire to Revive</button>
-                    </div>
-                </div>
-
-                <!-- Example Grave 2 -->
-                <div class="grave-card">
-                    <div class="grave-card-header">
-                        <h3 class="grave-card-title">ContentForge</h3>
-                        <div class="grave-card-meta">
-                            <span><i class="fas fa-coins"></i> Was $19/mo</span>
-                            <span><i class="fas fa-users"></i> 87 users</span>
-                        </div>
-                    </div>
-                    <div class="grave-card-body">
-                        <p class="grave-card-description">
-                            AI-powered content generation platform. Solid technology but founder ran out of funding for marketing.
-                        </p>
-                        <div class="grave-card-assets">
-                            <span class="asset-tag"><i class="fas fa-globe"></i> Domain</span>
-                            <span class="asset-tag"><i class="fas fa-code"></i> Full Codebase</span>
-                            <span class="asset-tag"><i class="fas fa-server"></i> API Access</span>
-                        </div>
-                    </div>
-                    <div class="grave-card-footer">
-                        <div>
-                            <div class="grave-price">$850</div>
-                            <div class="price-badge">Great Deal</div>
-                        </div>
-                        <button class="inquire-button" data-grave="ContentForge">Inquire to Revive</button>
-                    </div>
-                </div>
-
-                <!-- Example Grave 3 -->
-                <div class="grave-card">
-                    <div class="grave-card-header">
-                        <h3 class="grave-card-title">TaskFlow</h3>
-                        <div class="grave-card-meta">
-                            <span><i class="fas fa-coins"></i> Was $15/mo</span>
-                            <span><i class="fas fa-users"></i> 260 users</span>
-                        </div>
-                    </div>
-                    <div class="grave-card-body">
-                        <p class="grave-card-description">
-                            Team productivity SaaS with unique workflow automation. Discontinued due to founder's change of focus.
-                        </p>
-                        <div class="grave-card-assets">
-                            <span class="asset-tag"><i class="fas fa-globe"></i> Domain</span>
-                            <span class="asset-tag"><i class="fas fa-code"></i> Full Codebase</span>
-                            <span class="asset-tag"><i class="fas fa-users"></i> Active Users</span>
-                        </div>
-                    </div>
-                    <div class="grave-card-footer">
-                        <div>
-                            <div class="grave-price">$1,500</div>
-                            <div class="price-badge">Popular</div>
-                        </div>
-                        <button class="inquire-button" data-grave="TaskFlow">Inquire to Revive</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="how-it-works" class="about-section">
-            <h2 class="section-title">How It Works</h2>
-            
-            <div class="how-it-works">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Choose Your Role</h3>
-                    <p>Sign up as a Tomb Raider (buyer) or Undertaker (seller) based on your needs.</p>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Explore or List</h3>
-                    <p>Tomb Raiders browse projects, while Undertakers list their failed SaaS projects.</p>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Connect & Revive</h3>
-                    <p>We facilitate connections between buyers and sellers to give projects a second life.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="success-stories" class="about-section">
-            <h2 class="section-title">Resurrection Success Stories</h2>
-
-            <div class="testimonials">
-                <div class="testimonial">
-                    <p class="testimonial-text">
-                        "As a Tomb Raider, I found SocialScheduler for just $600. With some rebranding and improved onboarding, we've grown it to $2k MRR in just 9 months."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MJ</div>
-                        <div class="author-info">
-                            <div class="author-name">Michael Johnson</div>
-                            <div class="user-role-badge tomb-raider-badge">Tomb Raider</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <p class="testimonial-text">
-                        "As an Undertaker, I was able to recover some value from my failed project and see it revived by someone with more time and resources."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SL</div>
-                        <div class="author-info">
-                            <div class="author-name">Sarah Lin</div>
-                            <div class="user-role-badge undertaker-badge">Undertaker</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <p class="testimonial-text">
-                        "The Graveyard helped me find a project that matched my skills perfectly. I acquired DataViz for $800 and pivoted it to a new niche."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">RP</div>
-                        <div class="author-info">
-                            <div class="author-name">Robert Parker</div>
-                            <div class="user-role-badge tomb-raider-badge">Tomb Raider</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
-
-    <!-- Auth Modal -->
-    <div class="modal" id="auth-modal">
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <h2 class="modal-title" id="auth-modal-title">Join The Graveyard</h2>
-            
-            <div class="auth-modal-tabs">
-                <div class="auth-tab active" data-tab="signup">Sign Up</div>
-                <div class="auth-tab" data-tab="login">Log In</div>
-            </div>
-            
-            <form id="signup-form" class="auth-form active">
-                <div class="form-group">
-                    <label class="form-label">Choose Your Role</label>
-                    <div class="role-selection">
-                        <div class="role-option tomb-raider-option selected" data-role="tomb-raider">
-                            <div class="role-option-icon tomb-raider-icon">
-                                <i class="fas fa-helmet-battle"></i>
-                            </div>
-                            <div>Tomb Raider</div>
-                        </div>
-                        <div class="role-option undertaker-option" data-role="undertaker">
-                            <div class="role-option-icon undertaker-icon">
-                                <i class="fas fa-coffin"></i>
-                            </div>
-                            <div>Undertaker</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Full Name</label>
-                    <input type="text" class="form-input" id="signup-name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Email Address</label>
-                    <input type="email" class="form-input" id="signup-email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-input" id="signup-password" required>
-                    <small class="error-message" id="signup-password-error"></small>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Confirm Password</label>
-                    <input type="password" class="form-input" id="signup-confirm-password" required>
-                    <small class="error-message" id="signup-confirm-error"></small>
-                </div>
-                
-                <button type="submit" class="form-submit">Create Account</button>
-                <div class="error-message" id="signup-error"></div>
-                <div class="success-message" id="signup-success"></div>
-            </form>
-            
-            <form id="login-form" class="auth-form">
-                <div class="form-group">
-                    <label class="form-label">Email Address</label>
-                    <input type="email" class="form-input" id="login-email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-input" id="login-password" required>
-                </div>
-                
-                <button type="submit" class="form-submit">Log In</button>
-                <div class="error-message" id="login-error"></div>
-            </form>
-        </div>
-    </div>
-
-    <!-- List a Grave Modal -->
-    <div class="modal" id="list-grave-modal">
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <h2 class="modal-title">List Your Project</h2>
-            <form id="grave-form">
-                <div class="form-group">
-                    <label class="form-label">Project Name</label>
-                    <input type="text" class="form-input" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Reason for Discontinuation</label>
-                    <select class="form-select" required>
-                        <option value="">Select primary reason...</option>
-                        <option>Ran out of funding</option>
-                        <option>Lack of market need</option>
-                        <option>Founder disputes</option>
-                        <option>Acquired another opportunity</option>
-                        <option>Technical challenges</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Project Description & Lessons Learned</label>
-                    <textarea class="form-textarea" required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Assets Available</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="assets"> Domain Name
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="assets"> Codebase
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="assets"> User Database
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="assets"> Social Accounts
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="assets"> Documentation
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Asking Price (USD)</label>
-                    <input type="number" class="form-input" placeholder="Enter amount">
-                </div>
-                
-                <button type="submit" class="form-submit">Submit for Review</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Inquire Modal -->
-    <div class="modal" id="inquire-modal">
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <h2 class="modal-title">Inquire About <span id="inquire-project-name"></span></h2>
-            <form id="inquire-form">
-                <div class="form-group">
-                    <label class="form-label">Your Name</label>
-                    <input type="text" class="form-input" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Your Email</label>
-                    <input type="email" class="form-input" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Your Background/Experience</label>
-                    <select class="form-select" required>
-                        <option value="">Select your background...</option>
-                        <option>Developer/Technical Founder</option>
-                        <option>Marketing/Business Founder</option>
-                        <option>Investor</option>
-                        <option>Company looking to acquire</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Your Revival Plan</label>
-                    <textarea class="form-textarea" placeholder="Briefly describe how you plan to revive this project..." required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Offer Price (USD)</label>
-                    <input type="number" class="form-input" placeholder="Enter your offer amount">
-                </div>
-                
-                <button type="submit" class="form-submit">Submit Inquiry</button>
-            </form>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="#">About Us</a>
-                <a href="#">How It Works</a>
-                <a href="#">FAQ</a>
-                <a href="#">Contact</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
-            </div>
-            <p>© 2023 The Graveyard. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script>
+        // Debug logging function
+        function logDebug(message, type = 'info') {
+            const logElement = document.getElementById('debug-log');
+            const logEntry = document.createElement('div');
+            logEntry.className = `log-entry log-${type}`;
+            logEntry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logElement.appendChild(logEntry);
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+
         // Firebase configuration - REPLACE WITH YOUR CONFIG
         const firebaseConfig = {
-            apiKey: "AIzaSyA28dAKeUday_3OZ32af_Xzg-cSX5qbopY",
-            authDomain: "saas-graveyard.firebaseapp.com",
-            projectId: "saas-graveyard",
-            storageBucket: "saas-graveyard.firebasestorage.app",
-            messagingSenderId: "750220753010",
-            appId: "1:750220753010:web:9ed594478086feef3faaeb"
+            apiKey: "YOUR_API_KEY",
+            authDomain: "your-project.firebaseapp.com",
+            projectId: "your-project-id",
+            storageBucket: "your-project.appspot.com",
+            messagingSenderId: "123456789",
+            appId: "YOUR_APP_ID"
         };
-        
+
+        // Update status indicators
+        function updateStatus(elementId, status, text) {
+            const indicator = document.getElementById(elementId);
+            const textElement = document.getElementById(`${elementId}-text`);
+            
+            indicator.className = `status-indicator status-${status ? 'active' : 'inactive'}`;
+            textElement.textContent = text;
+        }
+
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const db = firebase.firestore();
-        
-        // DOM Elements
-        const authButtons = document.getElementById('auth-buttons');
-        const userMenu = document.getElementById('user-menu');
-        const userAvatar = document.getElementById('user-avatar');
-        const userDisplayName = document.getElementById('user-display-name');
-        const userRoleBadge = document.getElementById('user-role-badge');
-        const logoutButton = document.getElementById('logout-button');
-        const authModal = document.getElementById('auth-modal');
-        const listGraveModal = document.getElementById('list-grave-modal');
-        const inquireModal = document.getElementById('inquire-modal');
-        const closeButtons = document.querySelectorAll('.close-modal');
-        const inquireButtons = document.querySelectorAll('.inquire-button');
-        const inquireProjectName = document.getElementById('inquire-project-name');
-        const heroCta = document.getElementById('hero-cta');
-        const signupButton = document.getElementById('signup-button');
-        const loginButton = document.getElementById('login-button');
-        const authTabs = document.querySelectorAll('.auth-tab');
-        const authForms = document.querySelectorAll('.auth-form');
-        const roleOptions = document.querySelectorAll('.role-option');
-        const tombRaiderSignup = document.getElementById('tomb-raider-signup');
-        const undertakerSignup = document.getElementById('undertaker-signup');
-        const userDashboard = document.getElementById('user-dashboard');
-        const setupInstructions = document.getElementById('setup-instructions');
-        
-        // Check if Firebase is configured
-        if (firebaseConfig.apiKey === "YOUR_API_KEY") {
-            setupInstructions.style.display = 'block';
-        } else {
-            setupInstructions.style.display = 'none';
+        let auth, db;
+        try {
+            firebase.initializeApp(firebaseConfig);
+            auth = firebase.auth();
+            db = firebase.firestore();
+            
+            updateStatus('firebase-status', true, 'Initialized successfully');
+            logDebug('Firebase initialized successfully', 'success');
+        } catch (error) {
+            updateStatus('firebase-status', false, `Error: ${error.message}`);
+            logDebug(`Firebase initialization error: ${error.message}`, 'error');
         }
-        
-        // Auth state observer
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                // User is signed in
-                authButtons.style.display = 'none';
-                userMenu.style.display = 'flex';
-                
-                // Get user data from Firestore
-                db.collection('users').doc(user.uid).get().then((doc) => {
-                    if (doc.exists) {
-                        const userData = doc.data();
-                        userDisplayName.textContent = userData.displayName;
-                        userAvatar.textContent = userData.displayName.charAt(0);
-                        
-                        // Set role badge
-                        if (userData.role === 'tomb-raider') {
-                            userRoleBadge.textContent = 'Tomb Raider';
-                            userRoleBadge.className = 'user-role-badge tomb-raider-badge';
-                        } else {
-                            userRoleBadge.textContent = 'Undertaker';
-                            userRoleBadge.className = 'user-role-badge undertaker-badge';
-                        }
-                        
-                        // Show dashboard
-                        userDashboard.style.display = 'block';
-                    }
-                }).catch((error) => {
-                    console.error("Error getting user document:", error);
-                });
-            } else {
-                // User is signed out
-                authButtons.style.display = 'flex';
-                userMenu.style.display = 'none';
-                userDashboard.style.display = 'none';
-            }
-        });
-        
-        // Open auth modal
-        signupButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            authModal.style.display = 'flex';
-            document.getElementById('auth-modal-title').textContent = 'Join The Graveyard';
-            switchAuthTab('signup');
-        });
-        
-        loginButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            authModal.style.display = 'flex';
-            document.getElementById('auth-modal-title').textContent = 'Log In to Your Account';
-            switchAuthTab('login');
-        });
-        
-        tombRaiderSignup.addEventListener('click', function(e) {
-            e.preventDefault();
-            authModal.style.display = 'flex';
-            switchAuthTab('signup');
-            selectRole('tomb-raider');
-        });
-        
-        undertakerSignup.addEventListener('click', function(e) {
-            e.preventDefault();
-            authModal.style.display = 'flex';
-            switchAuthTab('signup');
-            selectRole('undertaker');
-        });
-        
-        // Open list grave modal
-        listGraveLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Check if user is logged in
-            if (auth.currentUser) {
-                listGraveModal.style.display = 'flex';
-            } else {
-                authModal.style.display = 'flex';
-                switchAuthTab('signup');
-            }
-        });
-        
-        // Open inquire modal
-        inquireButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Check if user is logged in
-                if (auth.currentUser) {
-                    inquireProjectName.textContent = this.getAttribute('data-grave');
-                    inquireModal.style.display = 'flex';
-                } else {
-                    authModal.style.display = 'flex';
-                    switchAuthTab('signup');
-                }
-            });
-        });
-        
-        // Hero CTA also opens inquire modal
-        heroCta.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Check if user is logged in
-            if (auth.currentUser) {
-                inquireProjectName.textContent = 'a Project';
-                inquireModal.style.display = 'flex';
-            } else {
-                authModal.style.display = 'flex';
-                switchAuthTab('signup');
-            }
-        });
-        
-        // Close modals
-        closeButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                authModal.style.display = 'none';
-                listGraveModal.style.display = 'none';
-                inquireModal.style.display = 'none';
-            });
-        });
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', function(e) {
-            if (e.target === authModal) {
-                authModal.style.display = 'none';
-            }
-            if (e.target === listGraveModal) {
-                listGraveModal.style.display = 'none';
-            }
-            if (e.target === inquireModal) {
-                inquireModal.style.display = 'none';
-            }
-        });
-        
-        // Auth tabs
-        authTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                const tabName = this.getAttribute('data-tab');
-                switchAuthTab(tabName);
-            });
-        });
-        
-        function switchAuthTab(tabName) {
-            authTabs.forEach(tab => {
-                tab.classList.remove('active');
-                if (tab.getAttribute('data-tab') === tabName) {
-                    tab.classList.add('active');
-                }
-            });
+
+        // Test Authentication
+        document.getElementById('test-auth').addEventListener('click', function() {
+            logDebug('Testing authentication...', 'info');
             
-            authForms.forEach(form => {
-                form.classList.remove('active');
-                if (form.id === `${tabName}-form`) {
-                    form.classList.add('active');
-                }
-            });
-        }
-        
-        // Role selection
-        roleOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                const role = this.getAttribute('data-role');
-                selectRole(role);
-            });
-        });
-        
-        function selectRole(role) {
-            roleOptions.forEach(option => {
-                option.classList.remove('selected');
-                if (option.getAttribute('data-role') === role) {
-                    option.classList.add('selected');
-                }
-            });
-        }
-        
-        // Sign up form submission
-        document.getElementById('signup-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('signup-email').value;
-            const password = document.getElementById('signup-password').value;
-            const confirmPassword = document.getElementById('signup-confirm-password').value;
-            const displayName = document.getElementById('signup-name').value;
-            const selectedRole = document.querySelector('.role-option.selected').getAttribute('data-role');
-            
-            // Clear previous errors
-            document.getElementById('signup-password-error').textContent = '';
-            document.getElementById('signup-confirm-error').textContent = '';
-            document.getElementById('signup-error').textContent = '';
-            document.getElementById('signup-success').textContent = '';
-            
-            // Validate passwords match
-            if (password !== confirmPassword) {
-                document.getElementById('signup-confirm-error').textContent = 'Passwords do not match';
-                return;
-            }
-            
-            // Validate password length
-            if (password.length < 6) {
-                document.getElementById('signup-password-error').textContent = 'Password must be at least 6 characters';
-                return;
-            }
-            
-            // Create user with Firebase Auth
-            auth.createUserWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    // Signed in
-                    const user = userCredential.user;
-                    
-                    // Update user profile
-                    return user.updateProfile({
-                        displayName: displayName
-                    }).then(() => {
-                        // Save additional user data to Firestore
-                        return db.collection('users').doc(user.uid).set({
-                            displayName: displayName,
-                            email: email,
-                            role: selectedRole,
-                            createdAt: firebase.firestore.FieldValue.serverTimestamp()
-                        });
-                    });
-                })
+            // Try to sign in anonymously (just to test the connection)
+            auth.signInAnonymously()
                 .then(() => {
-                    // Show success message
-                    document.getElementById('signup-success').textContent = 'Account created successfully!';
-                    
-                    // Close modal after a short delay
-                    setTimeout(() => {
-                        authModal.style.display = 'none';
-                    }, 1500);
+                    updateStatus('auth-status', true, 'Working correctly');
+                    logDebug('Authentication test passed', 'success');
+                    // Sign out after test
+                    auth.signOut();
                 })
                 .catch((error) => {
-                    // Handle errors
-                    document.getElementById('signup-error').textContent = error.message;
+                    updateStatus('auth-status', false, `Error: ${error.message}`);
+                    logDebug(`Authentication test failed: ${error.message}`, 'error');
+                    logDebug('Make sure you added your GitHub Pages domain to Firebase Authorized Domains', 'info');
                 });
         });
-        
-        // Login form submission
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+
+        // Test Firestore
+        document.getElementById('test-firestore').addEventListener('click', function() {
+            logDebug('Testing Firestore...', 'info');
             
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            
-            // Clear previous errors
-            document.getElementById('login-error').textContent = '';
-            
-            // Sign in with Firebase Auth
-            auth.signInWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    // Signed in
-                    authModal.style.display = 'none';
-                })
-                .catch((error) => {
-                    // Handle errors
-                    document.getElementById('login-error').textContent = error.message;
-                });
-        });
-        
-        // Logout functionality
-        logoutButton.addEventListener('click', function() {
-            auth.signOut().then(() => {
-                // Sign-out successful
-                console.log('User signed out');
-            }).catch((error) => {
-                // An error happened
-                console.error('Sign out error:', error);
+            // Try to write a test document
+            db.collection('test').doc('connection-test').set({
+                test: true,
+                timestamp: new Date()
+            })
+            .then(() => {
+                updateStatus('firestore-status', true, 'Working correctly');
+                logDebug('Firestore test passed', 'success');
+                
+                // Clean up the test document
+                db.collection('test').doc('connection-test').delete();
+            })
+            .catch((error) => {
+                updateStatus('firestore-status', false, `Error: ${error.message}`);
+                logDebug(`Firestore test failed: ${error.message}`, 'error');
             });
         });
-        
-        // Form submissions
-        document.getElementById('grave-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your submission! Our team will review your project and contact you shortly.');
-            listGraveModal.style.display = 'none';
-            this.reset();
-        });
-        
-        document.getElementById('inquire-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Your inquiry has been sent! We will connect you with the project owner shortly.');
-            inquireModal.style.display = 'none';
-            this.reset();
-        });
-        
-        // Filter buttons
-        const filterButtons = document.querySelectorAll('.filter-button');
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Simple filter functionality
-                const filterValue = this.textContent.toLowerCase();
-                const cards = document.querySelectorAll('.grave-card');
-                
-                cards.forEach(card => {
-                    const price = card.querySelector('.grave-price').textContent;
-                    const priceValue = parseInt(price.replace('$', '').replace(',', ''));
-                    
-                    if (filterValue === 'all') {
-                        card.style.display = 'block';
-                    } else if (filterValue === 'under $1k' && priceValue < 1000) {
-                        card.style.display = 'block';
-                    } else if (filterValue === 'with codebase') {
-                        const assets = card.querySelector('.grave-card-assets').textContent;
-                        if (assets.includes('Codebase')) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+
+        // Check if Firebase config is still using placeholder values
+        if (firebaseConfig.apiKey === "YOUR_API_KEY") {
+            logDebug('You need to replace the Firebase configuration with your actual project config', 'error');
+            updateStatus('firebase-status', false, 'Invalid configuration');
+        }
+
+        // Initial status checks
+        if (auth) {
+            auth.onAuthStateChanged((user) => {
+                if (user) {
+                    updateStatus('auth-status', true, 'User signed in');
+                    logDebug(`User signed in: ${user.uid}`, 'success');
+                } else {
+                    updateStatus('auth-status', true, 'No user signed in');
+                    logDebug('No user signed in', 'info');
+                }
             });
-        });
+        }
     </script>
 </body>
 </html>
